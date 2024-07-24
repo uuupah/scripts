@@ -1,0 +1,13 @@
+#!/bin/bash
+WID=$(xdotool getactivewindow)
+gnome-terminal --title "emoji picker" --wait -- ~/scripts/emojipicker
+xdotool windowactivate --sync $WID
+
+if [[ $( xprop -id $WID | grep "WM_CLASS(STRING)" ) == *"firefox"* ]]; then
+#  firefox is slow as shit
+  xdotool type --delay 500 "$(cat ~/scripts/currentemoji)"; echo
+else
+  xdotool type "$(cat ~/scripts/currentemoji)"; echo
+fi
+sleep 1
+rm ~/scripts/currentemoji

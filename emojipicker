@@ -1,0 +1,5 @@
+#!/bin/bash
+# big ups to kresimir for the original idea https://forum.endeavouros.com/t/tip-shell-emoji-picker/34117
+## the best emoji picker, needs fzf and xclip
+_STR=$(fzf < ~/scripts/emoji-list)
+printf "%s" ${_STR%% *} > ~/scripts/currentemoji
