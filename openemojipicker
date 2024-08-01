@@ -1,6 +1,6 @@
 #!/bin/bash
 WID=$(xdotool getactivewindow)
-gnome-terminal --title "emoji picker" --wait -- ~/scripts/emojipicker
+gnome-terminal --title "emoji picker" --wait -- /bin/sh -c '_STR=$(fzf < ~/scripts/emoji-list); printf "%s" ${_STR%% *} > ~/scripts/currentemoji'
 xdotool windowactivate --sync $WID
 
 if [[ $( xprop -id $WID | grep "WM_CLASS(STRING)" ) == *"firefox"* ]]; then
