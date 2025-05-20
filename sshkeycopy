@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+read -p "provide a login in the format user@server: " logintarget 
+ssh-copy-id -i /home/uuu/id_ed25519.pub $logintarget
