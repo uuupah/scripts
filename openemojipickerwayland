@@ -1,0 +1,20 @@
+#!/bin/bash
+window_info=$(hyprctl activewindow -j)
+
+pid=$(echo "$window_info" | jq -r '.pid')
+class=$(echo "$window_info" | jq -r '.class')
+
+# alacritty --title "emoji picker" -e "'_STR=$(fzf < ~/scripts/emoji-list)'; printf '%.1s' $_STR > ~/scripts/currentemoji"
+
+alacritty --hold --title "emoji picker" -e echo $(cat ~/scripts/emoji-list | fzf | cut -d ' ' -f 1 | tr -d '\n') > ~/scripts/currentemoji
+
+#hyprctl dispatch focuswindow pid:$pid
+
+#if [[ $class == *"Librewolf"* || $class == *"Firefox"* ]]; then
+##  firefox is slow as shit
+#  xdotool type --delay 500 "$(cat ~/scripts/currentemoji)"; echo
+#else
+#  xdotool type "$(cat ~/scripts/currentemoji)"; echo
+#fi
+#sleep 1
+#rm ~/scripts/currentemoji

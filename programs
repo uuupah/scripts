@@ -1,3 +1,4 @@
 #!/bin/bash
 echo 'file explorer - spf (superfile)'
 echo 'ssh search - sudo nmap -p 22 10.170.0.0/24'
+echo 'list fonts - fc-list'
