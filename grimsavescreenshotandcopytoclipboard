@@ -1,0 +1,6 @@
+#! /bin/bash
+
+SCREENSHOTFILE=$(xdg-user-dir PICTURES)/screenshot_$(date +%Y_%m_%d_%H_%M_%S).png
+
+grim -g "$(slurp -d -c C5C8C6)" $SCREENSHOTFILE
+wl-copy < $SCREENSHOTFILE && notify-send "Screenshot copied to clipboard" -i $SCREENSHOTFILE
