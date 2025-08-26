@@ -1,6 +1,8 @@
 #! /bin/bash
 
-SCREENSHOTFILE=$(xdg-user-dir PICTURES)/screenshot_$(date +%Y_%m_%d_%H_%M_%S).png
+SCREENSHOTFILE=$(xdg-user-dir PICTURES)/screenshots/screenshot_$(date +%Y_%m_%d_%H_%M_%S).png
 
-grim -g "$(slurp -d -c C5C8C6)" $SCREENSHOTFILE
-wl-copy < $SCREENSHOTFILE && notify-send "Screenshot copied to clipboard" -i $SCREENSHOTFILE
+hyprctl keyword decoration:dim_inactive false
+grim -g "$(slurp -d -b D3C6AA55 -c D3C6AA)" $SCREENSHOTFILE
+wl-copy < $SCREENSHOTFILE && notify-send "screenshot copied to clipboard" -i $SCREENSHOTFILE
+hyprctl keyword decoration:dim_inactive true
