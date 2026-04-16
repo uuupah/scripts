@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+sudo /bin/env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"  XDG_RUNTIME_DIR=/user/run/0 "$@"
