@@ -276,19 +276,37 @@ notify-send -u low "dunst test" "low urgency"
 notify-send -u normal "dunst test" "normal urgency"
 notify-send -t 10000 -u critical "dunst test" "critical urgency"
 
-# sddm
-# sddmconfig="background=\"${background}\"
-# foreground=\"${foreground}\"
-# dim=\"${black}\""
-
-sddmconfig="background=\"#000000\"
-foreground=\"#D3D3D3\"
-dim=\"#888888\""
-
-cat ${homedir}/.config/sddm/themerules.conf > /usr/share/sddm/themes/uuusddm/theme.conf
-printf "${sddmconfig}" >> /usr/share/sddm/themes/uuusddm/theme.conf
-
-echo basethemecolor "$basethemecolor"
+# swaylock
+swaylockconfig="color=${base00}
+bs-hl-color=${base06}
+caps-lock-bs-hl-color=${base06}
+caps-lock-key-hl-color=${base0B}
+inside-color=${base00}
+inside-clear-color=${base00}
+inside-caps-lock-color=${base00}
+inside-ver-color=${base00}
+inside-wrong-color=${base00}
+key-hl-color=${base0B}
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=${base0E}
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+ring-color=${base02}
+ring-clear-color=${base06}
+ring-caps-lock-color=${base09}
+ring-ver-color=${base0D}
+ring-wrong-color=${base08}
+separator-color=00000000
+text-color=${base05}
+text-clear-color=${base06}
+text-caps-lock-color=${base09}
+text-ver-color=${base0D}
+text--color=${base08}"
+printf "${swaylockconfig}" > ${homedir}/.swaylock/config
 
 # gtk
 gtk2config="gtk-color-scheme = \"text_color:${foreground}
