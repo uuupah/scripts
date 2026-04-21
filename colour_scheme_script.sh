@@ -358,9 +358,86 @@ text=${foreground:1}"
 
 printf "${slurpconfig}" > "${homedir}/.config/slurp/colours.sh"
 
-#TODO hyprlock
+# obsidian - avoid dotfile weirdness by just redoing it every time
+obsidianconfig="/*refer to theme-reference.css for notes*/
+:root {
+    --dimbackground: ${backgrounddim};
+    --base00: ${base00};
+    --base01: ${base01};
+    --base02: ${base02};
+    --base03: ${base03};
+    --base04: ${base04};
+    --base05: ${base05};
+    --base06: ${base06};
+    --base07: ${base07};
+    --base08: ${base08};
+    --base09: ${base09};
+    --base0A: ${base0A};
+    --base0B: ${base0B};
+    --base0C: ${base0C};
+    --base0D: ${base0D};
+    --base0E: ${base0E};
+    --themecolor: ${basethemecolor};
+    --transthemecolor: ${basethemecolor}c0;
+}
+.theme-dark {
+  --background-modifier-cover: rgba(0, 0, 0, 0);
+  --background-primary: var(--base00);
+  --background-primary-alt: var(--dimbackground);
+  --background-secondary: var(--base00);
+  --background-secondary-alt: var(--dimbackground);
+  --background-modifier-border: var(--dimbackground);
+  --background-modifier-form-field: var(--dimbackground);
+  --text-normal: var(--base05);
+  --text-muted: var(--base03);
+  --text-accent: var(--themecolor);
+  --text-accent-hover: var(--transthemecolor);
+  --text-faint: var(--base03);
+  --text-highlight-bg: rgba(255, 255, 0, 0.4);
+  --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
+  --text-selection: var(--base02);
+  --interactive-normal: var(--base01);
+  --interactive-hover: var(--base02);
+  --interactive-accent: var(--themecolor);
+  --interactive-accent-hover: var(--transthemecolor);
+  --scrollbar-bg: rgba(255, 255, 255, 0.05);
+  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
+}
+.graph-view.color-fill {color: var(--text-muted);}
+.graph-view.color-fill-focused {color: var(--base0A);}
+.theme-dark .graph-view.color-fill-tag {color: var(--base09);}
+.theme-light .graph-view.color-fill-tag {color: var(--base09);}
+.theme-dark .graph-view.color-fill-attachment {color: var(--base0D);}
+.theme-light .graph-view.color-fill-attachment {color: var(--base0D);}
+.graph-view.color-fill-unresolved {
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+.graph-view.color-arrow {
+  color: var(--text-normal);
+  opacity: 0.5;
+}
+.graph-view.color-circle {color: var(--text-normal);}
+.graph-view.color-line {color: var(--background-modifier-border);}
+.graph-view.color-text {color: var(--text-normal);}
+.graph-view.color-fill-highlight {color: var(--interactive-accent);}
+.graph-view.color-line-highlight {color: var(--interactive-accent);}"
 
-#TODO hyprland borders
+obsidianmanifest='{
+  "name": "uuu",
+  "version": "0.0.1",
+  "minAppVersion": "1.6.0",
+  "author": "uuu",
+  "authorUrl": "https://uuupah.neocities.org"
+}'
+
+if [ -d "${homedir}/sync-obsidian/.obsidian" ] ; then
+  mkdir -p ~/sync-obsidian/.obsidian/themes/uuu
+  rm ~/sync-obsidian/.obsidian/themes/uuu/*
+  printf "${obsidianconfig}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu/theme.css"	
+  printf "${obsidianmanifest}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu/manifest.json"
+fi
 
 #TODO firefox / librewolf
 # # "theme color" overused
@@ -697,28 +774,6 @@ rules = [
 ]"
 
 printf "${yaziconfig}" > "${homedir}/.config/yazi/flavors/theme.toml"
-
-# obsidian
-obsidianconfig=":root {
-  --dimbackground: ${base00};
-  --base00: ${base00};
-  --base01: ${base01};
-  --base02: ${base02};
-  --base03: ${base03};
-  --base04: ${base04};
-  --base05: ${base05};
-  --base06: ${base06};
-  --base07: ${base07};
-  --base08: ${base08};
-  --base09: ${base09};
-  --base0A: ${base0A};
-  --base0B: ${base0B};
-  --base0C: ${base0C};
-  --base0D: ${base0D};
-  --base0E: ${base0E};
-}"
-printf "${obsidianconfig}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu/themecolors.css"
-${homedir}/sync-obsidian/.obsidian/themes/uuu/theme_combiner.sh
 
 #TODO vscode
 # 🚨 EXTREMELY BAD CODE ALERT 🚨
