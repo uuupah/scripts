@@ -212,7 +212,6 @@ printf " " >> ${homedir}/.config/alacritty/alacritty.toml
 truncate -s-1 ${homedir}/.config/alacritty/alacritty.toml
 
 # waybar (this feels dodgy but it works)
-# TODO 🚨 FIX THE HOVER FIELDS 🚨
 waybarconfig="@define-color bg ${background};
 @define-color fg ${foreground};
 @define-color im ${red};"
@@ -384,12 +383,14 @@ obsidianconfig="/*refer to theme-reference.css for notes*/
   --background-modifier-cover: rgba(0, 0, 0, 0);
   --background-primary: var(--base00);
   --background-primary-alt: var(--dimbackground);
-  --background-secondary: var(--base00);
+  --background-secondary: var(--dimbackground);
   --background-secondary-alt: var(--dimbackground);
-  --background-modifier-border: var(--dimbackground);
+  --background-modifier-border: var(--base00);
   --background-modifier-form-field: var(--dimbackground);
+  --ribbon-background: var(--dimbackground);
+  --ribbon-background-collapsed: var(--dimbackground);
   --text-normal: var(--base05);
-  --text-muted: var(--base03);
+  --text-muted: var(--base04);
   --text-accent: var(--themecolor);
   --text-accent-hover: var(--transthemecolor);
   --text-faint: var(--base03);
@@ -1024,14 +1025,14 @@ vswindowconfig="// Base colors
 \"editorMarkerNavigationInfo.headerBackground\": \"${base0C}\", //C
 
 // Peek view colors
-// "peekView.border": "#f00",
+// \"peekView.border\": \"#f00\",
 \"peekViewEditor.background\": \"${base01}\", //1
 \"peekViewEditorGutter.background\": \"${base01}\", //1
-"peekViewEditor.matchHighlightBackground": "{base09}", //9
+\"peekViewEditor.matchHighlightBackground\": \"{base09}\", //9
 \"peekViewResult.background\": \"${base00}\", //0
 \"peekViewResult.fileForeground\": \"${base05}\", //5
 \"peekViewResult.lineForeground\": \"${base03}\", //3
-"peekViewResult.matchHighlightBackground": "{base09}", //9
+\"peekViewResult.matchHighlightBackground\": \"{base09}\", //9
 \"peekViewResult.selectionBackground\": \"${base02}\", //2
 \"peekViewResult.selectionForeground\": \"${base05}\", //5
 \"peekViewTitle.background\": \"${base02}\", //2
@@ -2498,7 +2499,7 @@ vswindowconfig="// Base colors
 \"commandCenter.activeForeground\": \"${base07}\", //7
 \"commandCenter.background\": \"${base00}\", //0
 \"commandCenter.activeBackground\": \"${base01}\", //1
-// "commandCenter.border": "#ff0000",
+// \"commandCenter.border\": \"#ff0000\",
 
 // Notification colors
 \"notificationCenterHeader.foreground\": \"${base05}\", //5
@@ -2561,8 +2562,8 @@ vswindowconfig="// Base colors
 \"terminal.ansiBrightCyan\": \"${base0C}\", //C
 \"terminal.ansiBrightWhite\": \"${base07}\", //7
 \"terminalCursor.foreground\": \"${base05}\", //5
-"terminalOverviewRuler.cursorForeground": "#ff0000",
-"terminalOverviewRuler.findMatchForeground": "#ff0000",
+\"terminalOverviewRuler.cursorForeground\": \"#ff0000\",
+\"terminalOverviewRuler.findMatchForeground\": \"#ff0000\",
 
 // Debug colors
 \"debugToolBar.background\": \"${base01}\", //1
@@ -2641,7 +2642,7 @@ vswindowconfig="// Base colors
 \"symbolIcon.arrayForeground\": \"${base05}\", //5
 \"symbolIcon.booleanForeground\": \"${base09}\", //9
 \"symbolIcon.classForeground\": \"${base0A}\", //A
-"symbolIcon.colorForeground": "#f0f",
+\"symbolIcon.colorForeground\": \"#f0f\",
 \"symbolIcon.constantForeground\": \"${base09}\", //9
 \"symbolIcon.constructorForeground\": \"${base0D}\", //D
 \"symbolIcon.enumeratorForeground\": \"${base09}\", //9
@@ -2652,24 +2653,24 @@ vswindowconfig="// Base colors
 \"symbolIcon.folderForeground\": \"${base05}\", //5
 \"symbolIcon.functionForeground\": \"${base0D}\", //D,
 \"symbolIcon.interfaceForeground\": \"${base0D}\", //D
-"symbolIcon.keyForeground": "#f0f",
+\"symbolIcon.keyForeground\": \"#f0f\",
 \"symbolIcon.keywordForeground\": \"${base0E}\", //E
 \"symbolIcon.methodForeground\": \"${base0D}\", //D
 \"symbolIcon.moduleForeground\": \"${base05}\", //5
 \"symbolIcon.namespaceForeground\": \"${base05}\", //5
 \"symbolIcon.nullForeground\": \"${base0F}\", //F
 \"symbolIcon.numberForeground\": \"${base09}\", //9
-"symbolIcon.objectForeground": "#f0f",
-"symbolIcon.operatorForeground": "#f0f",
-"symbolIcon.packageForeground": "#f0f",
+\"symbolIcon.objectForeground\": \"#f0f\",
+\"symbolIcon.operatorForeground\": \"#f0f\",
+\"symbolIcon.packageForeground\": \"#f0f\",
 \"symbolIcon.propertyForeground\": \"${base05}\", //5
-"symbolIcon.referenceForeground": "#f0f",
+\"symbolIcon.referenceForeground\": \"#f0f\",
 \"symbolIcon.snippetForeground\": \"${base05}\", //5
 \"symbolIcon.stringForeground\": \"${base0B}\", //B
 \"symbolIcon.structForeground\": \"${base0A}\", //A
 \"symbolIcon.textForeground\": \"${base05}\", //5
-"symbolIcon.typeParameterForeground": "#f0f",
-"symbolIcon.unitForeground": "#f0f",
+\"symbolIcon.typeParameterForeground\": \"#f0f\",
+\"symbolIcon.unitForeground\": \"#f0f\",
 \"symbolIcon.variableForeground\": \"${base08}\", //8
 
 // Debug Icons colors
