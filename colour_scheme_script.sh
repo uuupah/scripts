@@ -428,19 +428,19 @@ obsidianconfig="/*refer to theme-reference.css for notes*/
 # you could set .workspace-tab-header-container to background-color base 00,
 # .titlebar-container background-color #base00
 
-obsidianmanifest='{
-  "name": "uuu",
-  "version": "0.0.1",
-  "minAppVersion": "1.6.0",
-  "author": "uuu",
-  "authorUrl": "https://uuupah.neocities.org"
-}'
+obsidianmanifest="{
+  \"name\": \"uuu-$(hostname)\",
+  \"version\": \"0.0.1\",
+  \"minAppVersion\": \"1.6.0\",
+  \"author\": \"uuu\",
+  \"authorUrl\": \"https://uuupah.neocities.org\"
+}"
 
 if [ -d "${homedir}/sync-obsidian/.obsidian" ] ; then
-  mkdir -p ~/sync-obsidian/.obsidian/themes/uuu
-  rm ~/sync-obsidian/.obsidian/themes/uuu/*
-  printf "${obsidianconfig}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu/theme.css"	
-  printf "${obsidianmanifest}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu/manifest.json"
+  mkdir -p ~/sync-obsidian/.obsidian/themes/uuu-$(hostname)
+  rm ~/sync-obsidian/.obsidian/themes/uuu-$(hostname)/*
+  printf "${obsidianconfig}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu-$(hostname)/theme.css"	
+  printf "${obsidianmanifest}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu-$(hostname)/manifest.json"
 fi
 
 #TODO firefox / librewolf
