@@ -443,10 +443,30 @@ if [ -d "${homedir}/sync-obsidian/.obsidian" ] ; then
   printf "${obsidianmanifest}" > "${homedir}/sync-obsidian/.obsidian/themes/uuu-$(hostname)/manifest.json"
 fi
 
-#TODO firefox / librewolf
-# # "theme color" overused
-# # url bar grey is too light and doesnt fit theme (i think)
-# # text too white
+# librewolf # not perfect but vastly improved
+librewolfconfig="#nav-bar ,
+.tab-background[selected],
+#urlbar-zoom-button,
+#urlbar-searchmode-switcher {
+  background-color: ${base02} !important;
+}
+
+#urlbar-background,
+.tab-background,
+#urlbar > vbox.urlbarView {
+  background-color: ${base00} !important;
+}
+
+:root {
+	color: ${base06} !important;
+}
+
+#navigator-toolbox {
+	--toolbox-textcolor-inactive: ${base06}99 !important; /*idk if this is working*/
+	background-color: ${base00} !important;
+	border-bottom-color: ${base00} !important;
+}"
+printf "${librewolfconfig}" > "${homedir}/.config/colours/librewolfcolors.css"
 
 #TODO bat
 
