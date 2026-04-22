@@ -172,7 +172,7 @@ esac
 # alacritty
 alacrittyconfig="[colors.primary]
 foreground = \"$foreground\"
-background = \"$background\"
+background = \"$dimbackground\"
 
 [colors.normal]
 black = \"$black\"
@@ -424,6 +424,9 @@ obsidianconfig="/*refer to theme-reference.css for notes*/
 .graph-view.color-text {color: var(--text-normal);}
 .graph-view.color-fill-highlight {color: var(--interactive-accent);}
 .graph-view.color-line-highlight {color: var(--interactive-accent);}"
+
+# you could set .workspace-tab-header-container to background-color base 00,
+# .titlebar-container background-color #base00
 
 obsidianmanifest='{
   "name": "uuu",
