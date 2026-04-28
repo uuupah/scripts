@@ -304,6 +304,7 @@ text-color=${base05}
 text-clear-color=${base06}
 text-caps-lock-color=${base09}
 text-ver-color=${base0D}
+text-wrong-color=${base08}
 text--color=${base08}"
 printf "${swaylockconfig}" > ${homedir}/.swaylock/config
 
@@ -423,7 +424,8 @@ obsidianconfig="/*refer to theme-reference.css for notes*/
 .graph-view.color-line {color: var(--background-modifier-border);}
 .graph-view.color-text {color: var(--text-normal);}
 .graph-view.color-fill-highlight {color: var(--interactive-accent);}
-.graph-view.color-line-highlight {color: var(--interactive-accent);}"
+.graph-view.color-line-highlight {color: var(--interactive-accent);}
+.cm-contentContainer table{	border-color: var(--dimbackground);}"
 
 # you could set .workspace-tab-header-container to background-color base 00,
 # .titlebar-container background-color #base00
