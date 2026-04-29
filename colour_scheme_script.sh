@@ -425,7 +425,9 @@ obsidianconfig="/*refer to theme-reference.css for notes*/
 .graph-view.color-text {color: var(--text-normal);}
 .graph-view.color-fill-highlight {color: var(--interactive-accent);}
 .graph-view.color-line-highlight {color: var(--interactive-accent);}
-.cm-contentContainer table{	border-color: var(--dimbackground);}"
+.cm-contentContainer table{	border-color: var(--dimbackground);}
+.hr>hr{border-color:var(--base02);}
+th,td{border-color:var(--base02) !important;}"
 
 # you could set .workspace-tab-header-container to background-color base 00,
 # .titlebar-container background-color #base00
