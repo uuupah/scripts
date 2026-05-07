@@ -99,6 +99,17 @@ backgroundgreen="#$(magick xc:"${base0B}" -fill "${backgrounddim}" -colorize 75%
 backgroundyellow="#$(magick xc:"${base0A}" -fill "${backgrounddim}" -colorize 75% -depth 8 -format "%[hex:u]" info:)"
 backgroundblue="#$(magick xc:"${base0D}" -fill "${backgrounddim}" -colorize 75% -depth 8 -format "%[hex:u]" info:)"
 
+# these are currently just for the gtk theme
+slightlydimred="#$(magick xc:"${base08}" -fill "${base00}" -colorize 50% -depth 8 -format "%[hex:u]" info:)"
+slightlydimgreen="#$(magick xc:"${base0B}" -fill "${base00}" -colorize 50% -depth 8 -format "%[hex:u]" info:)"
+slightlydimyellow="#$(magick xc:"${base0A}" -fill "${base00}" -colorize 50% -depth 8 -format "%[hex:u]" info:)"
+slightlydimblue="#$(magick xc:"${base0D}" -fill "${base00}" -colorize 50% -depth 8 -format "%[hex:u]" info:)"
+
+slightlylightred="#$(magick xc:"${base08}" -fill "${base07}" -colorize 30% -depth 8 -format "%[hex:u]" info:)"
+slightlylightgreen="#$(magick xc:"${base0B}" -fill "${base07}" -colorize 30% -depth 8 -format "%[hex:u]" info:)"
+slightlylightyellow="#$(magick xc:"${base0A}" -fill "${base07}" -colorize 30% -depth 8 -format "%[hex:u]" info:)"
+slightlylightblue="#$(magick xc:"${base0D}" -fill "${base07}" -colorize 30% -depth 8 -format "%[hex:u]" info:)"
+
 darkestbackground= #TODO base11 or generated
 dimbackground="$backgrounddim" #TODO base10 or generated
 background="$base00" #base00
@@ -340,10 +351,44 @@ gtk3config="@define-color base00 ${base00};
 @define-color base0E ${base0E};
 @define-color base0F ${base0F};
 
-@define-color theme_color ${basethemecolor};"
+@define-color theme_color ${basethemecolor};
+
+@define-color dim_red ${slightlydimred};
+@define-color dim_green ${slightlydimgreen};
+@define-color dim_yellow ${slightlydimyellow};
+@define-color dim_blue ${slightlydimblue};
+
+@define-color light_red ${slightlylightred};
+@define-color light_green ${slightlylightgreen};
+@define-color light_yellow ${slightlylightyellow};
+@define-color light_blue ${slightlylightblue};
+
+@define-color dim_background ${dimbackground};
+@define-color background_red ${backgroundred};
+@define-color background_green ${backgroundgreen};
+@define-color background_yellow ${backgroundyellow};
+@define-color background_blue ${backgroundblue};"
 
 printf "${gtk2config}" > "${homedir}/.themes/uuu/colorsrc"
 printf "${gtk3config}" > "${homedir}/.themes/uuu/colors.css"
+
+printf "${gtk2config}" > "${homedir}/.themes/colloid-base16/colorsrc"
+printf "${gtk3config}" > "${homedir}/.themes/colloid-base16/colors.css"
+
+# i could just have everything in a colors directory instead of doing this
+mkdir -p "${homedir}/.config/gtk-4.0"
+rm "${homedir}/.config/gtk-4.0/colors.css"
+ln "${homedir}/.themes/colloid-base16/colors.css" "${homedir}/.config/gtk-4.0/colors.css"
+
+# mkdir -p "${homedir}/.config/gtk-4.0"
+# 
+# rm "${homedir}/.config/gtk-4.0/gtk.css"
+# rm "${homedir}/.config/gtk-4.0/gtk-dark.css"
+# rm -rf "${homedir}/.config/gtk-4.0/assets"
+# 
+# ln -s "${homedir}/.themes/colloid-base16/gtk-4.0/gtk.css" "${homedir}/.config/gtk-4.0/gtk.css"
+# ln -s "${homedir}/.themes/colloid-base16/gtk-4.0/gtk.css" "${homedir}/.config/gtk-4.0/gtk-dark.css"
+# ln -s "${homedir}/.themes/colloid-base16/gtk-4.0/assets" "${homedir}/.config/gtk-4.0/assets"
 
 theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
 gsettings set org.gnome.desktop.interface gtk-theme ''
